@@ -65,7 +65,8 @@ class AuthController
         
         require_once __DIR__ . "/../views/auth/register.php";
     }
-    function Login()
+    // Gère la connexion de l'utilisateur
+    public function login()
     {
         session_start();
         require_once __DIR__ . '/../config/config.php';
@@ -88,29 +89,13 @@ class AuthController
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 if (password_verify($password, $row['password'])) {
-                    switch ($row['role']) {
-                        case 'student':
-                            $user = new Student($db);
-                            break;
-                        case 'teacher':
-                            $user = new Teacher($db);
-                            break;
-                        case 'admin':
-                            $user = new Admin($db);
-                            break;
-                        default:
-                            $error = 'Invalid role';
-                            break;
-                    }
+                    $_SESSION['user_id'] = $row['id'];
+                    $_SESSION['role'] = $row['role'];
+                    $_SESSION['is_verified'] = $row['is_verified'];
 
-                    if (isset($user)) {
-                        $_SESSION['user_id'] = $row['id'];
-                        $_SESSION['role'] = $row['role'];
-                        $_SESSION['is_verified'] = $row['is_verified'];
-
-                        header('Location: dashboard.php');
-                        exit;
-                    }
+                    // Rediriger vers le tableau de bord après connexion
+                    header('Location: /views/dashboard.php');
+                    exit;
                 } else {
                     $error = 'Invalid email or password';
                 }
@@ -119,7 +104,7 @@ class AuthController
             }
         }
 
-        require_once __DIR__ . "/../views/auth/login.php";
+        // Afficher la page de connexion avec un message d'erreur
+        require __DIR__ . "/../views/auth/login.php";
     }
 }
-?> 

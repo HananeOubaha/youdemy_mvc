@@ -24,7 +24,7 @@ require_once __DIR__ . '/../../config/url.php';
                 </div>
             <?php endif; ?>
 
-            <form method="POST" action="">
+            <form method="POST" action="/controllers/AuthController.php?action=login">
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
                         <i class="fas fa-envelope mr-2"></i>Email
@@ -48,7 +48,7 @@ require_once __DIR__ . '/../../config/url.php';
             </form>
 
             <p class="text-center mt-4 text-gray-600">
-                Don't have an account? <a href="register.php" class="text-blue-500 hover:text-blue-700 font-semibold">Register</a>
+                Don't have an account? <a href="/views/auth/register.php" class="text-blue-500 hover:text-blue-700 font-semibold">Register</a>
             </p>
         </div>
     </div>

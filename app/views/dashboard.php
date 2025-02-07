@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../views/auth/login.php'); // Redirige vers la page de connexion si l'utilisateur n'est pas connecté
+    exit;
+}
+
+// Récupération du rôle de l'utilisateur depuis la session
+$role = $_SESSION['role'] ?? 'student'; // Défaut à "student" si le rôle n'est pas défini
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +34,7 @@
         <?php endif; ?>
     </div>
 
-    <?php include '../pages/footer.php'; ?>
+    <?php include '../layouts/views/footer.php'; ?>
 
 </body>
 </html>
