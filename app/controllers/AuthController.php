@@ -9,7 +9,7 @@ class AuthController
 {
     function index()
     {
-      require_once __DIR__."/../views/auth/register.php";
+      require_once __DIR__."/../views/auth/login.php";
     }
     function Register()
     {
@@ -62,6 +62,7 @@ class AuthController
         }
 
         // Inclure la vue tout en passant les variables d'erreur et de succès
+        
         require_once __DIR__ . "/../views/auth/register.php";
     }
     function Login()

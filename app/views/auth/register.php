@@ -43,7 +43,7 @@ unset($_SESSION['error'], $_SESSION['success']);
                     </div>
                 <?php endif; ?>
 
-                <form method="POST" action="<?= HOST ?>/controllers/AuthController.php?action=register">
+                <form method="POST" action="<?= HOST ?>/AuthController/Register">
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                             <i class="fas fa-user mr-2"></i>Username

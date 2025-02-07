@@ -24,7 +24,7 @@ require_once __DIR__.'/../config/URL.php';
                 <div class="flex items-center space-x-4">
                     <?php if(!isset($_SESSION['user_id'])): ?>
                         <a href="<?=HOST?>/AuthController/login" class="text-gray-600 hover:text-blue-600">Login</a>
-                        <a href="<?=HOST?>/AuthController/registre" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Start Learning</a>
+                        <a href="<?=HOST?>/AuthController/Register" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Start Learning</a>
                     <?php else: ?>
                         <a href="<?=HOST?>/DashboardController/dashboard" class="text-gray-600 hover:text-blue-600">Dashboard</a>
                         <a href="pages/logout.php" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-300">Logout</a>
