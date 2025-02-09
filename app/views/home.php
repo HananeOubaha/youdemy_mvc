@@ -26,8 +26,8 @@ require_once __DIR__.'/../config/URL.php';
                         <a href="<?=HOST?>/AuthController/login" class="text-gray-600 hover:text-blue-600">Login</a>
                         <a href="<?=HOST?>/AuthController/Register" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Start Learning</a>
                     <?php else: ?>
-                        <a href="<?=HOST?>/DashboardController/dashboard" class="text-gray-600 hover:text-blue-600">Dashboard</a>
-                        <a href="pages/logout.php" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-300">Logout</a>
+                        <a href="<?=HOST?>/DashboardController/studentDashboard" class="text-gray-600 hover:text-blue-600">Dashboard</a>
+                        <a href="<?=HOST?>/AuthController/logout" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-300">Logout</a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -137,4 +137,3 @@ require_once __DIR__.'/../config/URL.php';
     <?php endif; ?>
 </div>
 
-<?php require_once __DIR__ . '/../footer.php'; ?>

@@ -1,5 +1,4 @@
 <?php
-
 class Router
 {
     protected $currentController = 'HomeController'; // Contrôleur par défaut
@@ -9,6 +8,11 @@ class Router
     public function __construct()
     {
         $url = $this->getUrl();
+
+        // Vérifier si l'URL est vide (page d'accueil)
+        if (empty($url)) {
+            $url = [$this->currentController, $this->currentMethod];
+        }
 
         // Vérifier si un contrôleur correspondant existe
         if (isset($url[0]) && file_exists(__DIR__ . '/../app/controllers/' . ucfirst($url[0]) . '.php')) {

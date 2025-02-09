@@ -20,21 +20,20 @@ $role = $_SESSION['role'] ?? 'student'; // Défaut à "student" si le rôle n'es
 </head>
 <body class="bg-gray-100">
 
-    <?php include '../pages/navbar.php'; ?>
+    <?php include '../partials/navbar.php'; ?>
 
     <div class="max-w-6xl mx-auto px-4 py-8">
         <h1 class="text-4xl font-bold text-gray-800 mb-8">Welcome to Your Dashboard</h1>
 
         <?php if ($role === 'admin'): ?>
-            <?php include '../views/admin-dashboard.php'; ?>
+            <?php include '../views/admin.php'; ?>
         <?php elseif ($role === 'teacher'): ?>
-            <?php include '../views/teacher-dashboard.php'; ?>
+            <?php include '../views/teacher.php'; ?>
         <?php else: ?>
-            <?php include '../views/student-dashboard.php'; ?>
+            <?php include '../views/student.php'; ?>
         <?php endif; ?>
     </div>
 
-    <?php include '../layouts/views/footer.php'; ?>
 
 </body>
 </html>

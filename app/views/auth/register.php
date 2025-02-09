@@ -1,9 +1,16 @@
 <?php
-session_start();
+// Démarrer la session uniquement si elle n'est pas déjà active
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 require_once __DIR__ . '/../../config/url.php';
 
+// Récupérer les messages d'erreur et de succès de la session
 $error = $_SESSION['error'] ?? '';
 $success = $_SESSION['success'] ?? '';
+
+// Supprimer les messages de la session après les avoir récupérés
 unset($_SESSION['error'], $_SESSION['success']);
 ?>
 
@@ -85,7 +92,7 @@ unset($_SESSION['error'], $_SESSION['success']);
                 </form>
 
                 <p class="text-center mt-4 text-gray-600">
-                    Already have an account? <a href="<?= HOST ?>/views/auth/login.php" class="text-blue-500 hover:text-blue-700 font-semibold">Login</a>
+                    Already have an account? <a href="<?= HOST ?>/views/auth/login" class="text-blue-500 hover:text-blue-700 font-semibold">Login</a>
                 </p>
             </div>
         </div>

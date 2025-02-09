@@ -1,6 +1,12 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 require_once __DIR__ . '/../../config/url.php';
+
+$error = '';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,14 +23,13 @@ require_once __DIR__ . '/../../config/url.php';
         <div class="bg-white p-8 rounded-lg shadow-2xl w-96 relative z-10 transform transition-all duration-500 hover:scale-105">
             <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Welcome Back!</h1>
 
-            <!-- Message d'erreur -->
             <?php if (!empty($error)): ?>
                 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 animate-fade-in">
                     <?= htmlspecialchars($error); ?>
                 </div>
             <?php endif; ?>
 
-            <form method="POST" action="/controllers/AuthController.php?action=login">
+            <form method="POST" action="<?php echo HOST; ?>/DashboardController">
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
                         <i class="fas fa-envelope mr-2"></i>Email
@@ -48,7 +53,7 @@ require_once __DIR__ . '/../../config/url.php';
             </form>
 
             <p class="text-center mt-4 text-gray-600">
-                Don't have an account? <a href="/views/auth/register.php" class="text-blue-500 hover:text-blue-700 font-semibold">Register</a>
+                Don't have an account? <a href="<?php echo HOST; ?>/register.php" class="text-blue-500 hover:text-blue-700 font-semibold">Register</a>
             </p>
         </div>
     </div>
